@@ -10,6 +10,9 @@ services:
     tty: true
     depends_on:
       - master
+    volumes:
+      - "./docker/standby/docker-entrypoint.sh:/docker-entrypoint.sh"
+    user: postgres
   standby2:
     image: postgres
     tty: true

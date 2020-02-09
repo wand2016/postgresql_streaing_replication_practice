@@ -8,8 +8,8 @@ psql -c '\du'
 
 # host-based authentication of replication standby servers
 cat >> pg_hba.conf << EOF
-host    replication     replication_user standby1     trust
-host    replication     replication_user standby2     trust
+host    replication     replication_user 0.0.0.0/0     trust
+host    replication     replication_user 0.0.0.0/0     trust
 EOF
 
 pg_ctl reload
