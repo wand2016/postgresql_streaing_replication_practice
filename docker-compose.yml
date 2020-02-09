@@ -1,0 +1,11 @@
+version: "3"
+services:
+  master:
+    image: postgres
+    tty: true
+  standby1:
+    image: postgres
+    tty: true
+  standby2:
+    image: postgres
+    tty: true
