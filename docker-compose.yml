@@ -8,6 +8,17 @@ services:
   standby1:
     image: postgres
     tty: true
+    depends_on:
+      - master
   standby2:
     image: postgres
     tty: true
+    depends_on:
+      - master
+  client:
+    image: postgres
+    entrypoint: bash
+    tty: true
+    depends_on:
+      - standby1
+      - standby2
