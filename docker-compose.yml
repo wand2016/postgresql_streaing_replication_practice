@@ -3,6 +3,8 @@ services:
   master:
     image: postgres
     tty: true
+    volumes:
+      - "./docker/master/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
   standby1:
     image: postgres
     tty: true
