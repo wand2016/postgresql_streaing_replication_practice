@@ -3,13 +3,13 @@
 cd /var/lib/postgresql/data
 
 # create replication user
-psql -c "CREATE USER replication_user REPLICATION PASSWORD 'password';"
+psql -c "CREATE USER replication_user REPLICATION;"
 psql -c '\du'
 
 # host-based authentication of replication standby servers
 cat >> pg_hba.conf << EOF
-host    replication     replication_user standby1     md5
-host    replication     replication_user standby2     md5
+host    replication     replication_user standby1     trust
+host    replication     replication_user standby2     trust
 EOF
 
 pg_ctl reload
