@@ -8,9 +8,11 @@ chmod 700 .
 ls -ld
 ls -lA
 
-cat >> postgresql.conf <<EOF
-primary_conninfo = 'host=master user=replication_user port=5432 application_name=sby'
+cat >> postgresql.auto.conf <<EOF
+primary_conninfo = 'user=replication_user host=master port=5432 application_name=sby'
 EOF
+
+cat postgresql.auto.conf
 
 pg_ctl start
 bash
