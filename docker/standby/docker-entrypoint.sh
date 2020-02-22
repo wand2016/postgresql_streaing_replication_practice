@@ -9,7 +9,7 @@ ls -ld
 ls -lA
 
 cat >> postgresql.conf <<EOF
-primary_conninfo = 'user=replication_user database=postgres port=5432 application_name=sby'
+primary_conninfo = 'host=master user=replication_user database=postgres port=5432 application_name=sby'
 EOF
 
 pg_ctl start
